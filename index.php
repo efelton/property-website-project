@@ -123,9 +123,9 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="./Off Canvas Template for Bootstrap_files/jquery-1.10.2.min.js"></script>
-    <script src="./Off Canvas Template for Bootstrap_files/bootstrap.min.js"></script>
-    <script src="./Off Canvas Template for Bootstrap_files/offcanvas.js"></script>
+    <script src=".\vendor\bootstrap-3.0.3-dist\jquery-1.10.2.min.js"></script>
+    <script src=".\vendor\bootstrap-3.0.3-distbootstrap.min.js"></script>
+    <script src=".\vendor\bootstrap-3.0.3-distoffcanvas.js"></script>
   
 
 </body></html>
