@@ -12,7 +12,7 @@
     Zend_Loader::loadClass('Zend_Registry');
     Zend_Loader::loadClass('Zend_Form');
     Zend_Loader::loadClass('Zend_View');
-       
+         
     $db = Zend_Db::factory('Pdo_Mysql', array('host'=>'','username'=>'root','password'=>'','dbname'=>'property'));
        
     Zend_Db_Table::setDefaultAdapter($db);
