@@ -24,8 +24,8 @@
   
                     $select = $dbTable->select()->setIntegrityCheck(false)
                       ->from(array('t1' => 'properties'), array('description', 'title','address_line_1', 'address_line_2', 'address_line_3', 'update_timestamp', 'is_sold', 'price', 'photo_path'))
-//          ->join(array('t2'=>'cinema_x_movies'),'t1.movie_id=t2.movie_id',null)
-//          ->join(array('t3'=>'cinema'),'t2.cinema_id=t3.cinema_id','t3.title as cinemaTitle');
+                        ->join(array('t2' => 'counties'),'t1.county_id=t2.county_id','t2.name as countyName')
+                        ->join(array('t3' => 'property_types'),'t1.type_id=t3.type_id','t3.name as typeName')
             ; 
 
                   $rows = $dbTable->fetchAll($select);
@@ -61,9 +61,11 @@
 					$htmlString .=  "</td>";
 					$htmlString .=  "<td>";
 					// county
+					$htmlString .=  $property["countyName"];
 					$htmlString .=  "</td>";
 					$htmlString .=  "<td>";
 					// type
+					$htmlString .=  $property["typeName"];
 					$htmlString .=  "</td>";
 					$htmlString .=  "<td>";
 					// updated

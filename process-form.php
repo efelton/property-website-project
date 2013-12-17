@@ -25,8 +25,8 @@
             'is_sold' => $_POST['sold'],
             'description' => $_POST['description'],
             'type_id' => $_POST['type'],             // type
-
             // county
+            'county_id' => $_POST['county'],  
             // photo
         );
  

@@ -19,6 +19,7 @@
         $form->setMethod("post");
 
         $type_options = $db->fetchPairs('SELECT type_id, name FROM property_types ORDER BY type_id ASC');
+        $county_options = $db->fetchPairs('SELECT county_id, name FROM counties ORDER BY county_id ASC');
         var_dump ($type_options);
  //       die("here");
         //$country->setMultiOptions($options);
@@ -40,16 +41,28 @@
 //            'label'      => 'Address',
             'value'      => 'test'
         ));
+
+        $form->addElement('select', 'county', array(
+            'label'      => 'County',
+//            'value'      => 'test'
+        ));
+        
+        echo "<p> before setting = ";
+        var_dump ($form->getElement('county')->getMultiOptions());
+        $form->getElement('county')->addMultiOptions(array($county_options));       
+        echo "</p><p> after setting = ";
+        var_dump ($form->getElement('county')->getMultiOptions());
+
         $form->addElement('select', 'type', array(
             'label'      => 'Type',
 //            'value'      => 'test'
         ));
         
-        echo "<p> before setting = ";
-        var_dump ($form->getElement('type')->getMultiOptions());
+//        echo "<p> before setting = ";
+//        var_dump ($form->getElement('type')->getMultiOptions());
         $form->getElement('type')->addMultiOptions(array($type_options));       
-        echo "</p><p> after setting = ";
-        var_dump ($form->getElement('type')->getMultiOptions());
+//        echo "</p><p> after setting = ";
+//        var_dump ($form->getElement('type')->getMultiOptions());
 
         $form->addElement('text', 'price', array(
             'label'      => 'Price',
