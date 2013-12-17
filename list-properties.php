@@ -53,41 +53,48 @@
                                    
                                 foreach ($result as $property) {
 					$htmlString .=  "<tr>" ;
-					$htmlString .=  "<td>";
+					$htmlString .=  "<td><small>";
 					$htmlString .=  $property["title"];
-					$htmlString .=  "</td>";
-					$htmlString .=  "<td>";
+					$htmlString .=  "</small></td>";
+					$htmlString .=  "<td><small>";
 					$htmlString .=  $property["address_line_1"];
-					$htmlString .=  "</td>";
-					$htmlString .=  "<td>";
+					$htmlString .=  "</small></td>";
+					$htmlString .=  "<td><small>";
 					// county
 					$htmlString .=  $property["countyName"];
-					$htmlString .=  "</td>";
-					$htmlString .=  "<td>";
+					$htmlString .=  "</small></td>";
+					$htmlString .=  "<td><small>";
 					// type
 					$htmlString .=  $property["typeName"];
-					$htmlString .=  "</td>";
-					$htmlString .=  "<td>";
+					$htmlString .=  "</small></td>";
+					
+                                        $htmlString .=  "<td><small>";
 					// updated
-					$htmlString .=  "</td>";
-					$htmlString .=  "<td>";
+					$htmlString .=  $property["update_timestamp"];
+					$htmlString .=  "</small></td>";
+					$htmlString .=  "<td><small>";
 					// sold
-					$htmlString .=  "</td>";
-					$htmlString .=  "<td>";
+                                        if (strcmp($property['is_sold'], "1") == 0) {
+                                            $htmlString .= "Yes";
+                                        } else {
+                                            $htmlString .= "No";                                            
+                                        }
+					$htmlString .=  "</small></td>";
+					$htmlString .=  "<td><small>";
 					$htmlString .=  $property["price"];
-					$htmlString .=  "</td>";
-					$htmlString .=  "<td>";
+					$htmlString .=  "</small></td>";
+					$htmlString .=  "<td><small>";
 					// photo
-					$htmlString .=  "</td>";
-					$htmlString .=  "<td>";
+					$htmlString .=  "</small></td>";
+					$htmlString .=  "<td><small>";
 					// $htmlString .=  output_edit_link($product["product_id"]);
 					$htmlString .= "Edit";
-					$htmlString .=  "</td>";
+					$htmlString .=  "</small></td>";
 					
-					$htmlString .=  "<td>";
+					$htmlString .=  "<td><small>";
 					// $htmlString .=  output_delete_link($product["product_id"]);
 					$htmlString .= "Delete";
-					$htmlString .=  "</td>";
+					$htmlString .=  "</small></td>";
 					
 					
 					

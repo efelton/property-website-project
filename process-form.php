@@ -24,9 +24,11 @@
             'price' => $_POST['price'],
             'is_sold' => $_POST['sold'],
             'description' => $_POST['description'],
-            'type_id' => $_POST['type'],             // type
+            // type  
+            'type_id' => $_POST['type'],             
             // county
-            'county_id' => $_POST['county'],  
+            'county_id' => $_POST['county'],
+            'update_timestamp' => date('Y.m.d - H:i:s'),  
             // photo
         );
  
