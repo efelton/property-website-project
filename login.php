@@ -44,6 +44,7 @@ if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] == 1) {
           <?php
             if (isset($_SESSION['loginFailMsg']) && strlen ($_SESSION['loginFailMsg']) >0) {
                 echo $_SESSION['loginFailMsg'];
+                $_SESSION['loginFailMsg'] = "";
             }
           ?>
       </div>
