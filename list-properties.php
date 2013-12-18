@@ -1,4 +1,3 @@
-
 <?php 
 	session_start();
 
@@ -13,6 +12,7 @@
         || define('APPLICATION_PATH', realpath(dirname(__FILE__) . '/application'));
      
         require_once(APPLICATION_PATH .'/config/common.inc.php');
+        require_once(APPLICATION_PATH .'/inc/functions.inc.php');
 
 	include_once "header.php";
 ?>
@@ -23,7 +23,7 @@
                     $dbTable = new Zend_Db_Table('properties');
   
                     $select = $dbTable->select()->setIntegrityCheck(false)
-                      ->from(array('t1' => 'properties'), array('description', 'title','address_line_1', 'address_line_2', 'address_line_3', 'update_timestamp', 'is_sold', 'price', 'photo_path'))
+                      ->from(array('t1' => 'properties'), array('property_id', 'description', 'title','address_line_1', 'address_line_2', 'address_line_3', 'update_timestamp', 'is_sold', 'price', 'photo_path'))
                         ->join(array('t2' => 'counties'),'t1.county_id=t2.county_id','t2.name as countyName')
                         ->join(array('t3' => 'property_types'),'t1.type_id=t3.type_id','t3.name as typeName')
             ; 
@@ -92,8 +92,7 @@
 					$htmlString .=  "</small></td>";
 					
 					$htmlString .=  "<td><small>";
-					// $htmlString .=  output_delete_link($product["product_id"]);
-					$htmlString .= "Delete";
+					$htmlString .=  output_delete_link($property["property_id"]);
 					$htmlString .=  "</small></td>";
 					
 					
