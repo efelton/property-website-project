@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 17, 2013 at 08:14 PM
+-- Generation Time: Dec 18, 2013 at 06:35 PM
 -- Server version: 5.6.11
 -- PHP Version: 5.5.1
 
@@ -21,6 +21,25 @@ SET time_zone = "+00:00";
 --
 CREATE DATABASE IF NOT EXISTS `property` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
 USE `property`;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `adminusers`
+--
+
+CREATE TABLE IF NOT EXISTS `adminusers` (
+  `userid` varchar(100) NOT NULL,
+  `password` varchar(100) NOT NULL,
+  PRIMARY KEY (`userid`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `adminusers`
+--
+
+INSERT INTO `adminusers` (`userid`, `password`) VALUES
+('admin', 'd39ccb49a0b0b414d624224b14de2fa3');
 
 -- --------------------------------------------------------
 
@@ -86,7 +105,7 @@ CREATE TABLE IF NOT EXISTS `properties` (
   `price` int(11) NOT NULL,
   `photo_path` varchar(100) NOT NULL,
   PRIMARY KEY (`property_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
 
 --
 -- Dumping data for table `properties`
@@ -96,9 +115,11 @@ INSERT INTO `properties` (`property_id`, `title`, `description`, `address_line_1
 (1, 'A small, bijou residence', 'Indescribable', '1 Nice Villas', 'Dublin 11', '', 6, 1, '2013-12-17 18:12:46', 0, 200000, 'crystal.jpg'),
 (2, 'Place in the city', 'test', 'test', 'test', 'test', 1, 2, '2013-12-17 18:13:02', 0, 400000, 'extension.jpg'),
 (3, 'Glorious Mansion', 'amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing ', '1 Amazing st', 'Amazing boul', 'Amazington', 6, 3, '2013-12-17 18:13:10', 0, 99000, 'sample.jpg'),
-(4, 'Testy Place', 'test', 'Testy court', 'Flavia way', 'Cantelope', 3, 0, '2013-12-17 18:13:19', 1, 500000, 'sample.jpg'),
+(4, 'Testy Place', 'test', 'Testy court', 'Flavia way', 'Cantelope', 3, 3, '2013-12-17 22:15:56', 1, 500000, 'sample.jpg'),
 (5, 'Tuple place', 'test', '1 the county type', 'test', 'test2', 4, 1, '2013-12-17 18:13:25', 0, 450000, 'sample.jpg'),
-(6, 'Galway Looker', 'Galway (Irish: Cathair na Gaillimhe), is a city in Ireland. It is in the West Region and the province of Connacht. Galway City Council is the local authority for the city. Galway lies on the River Corrib between Lough Corrib and Galway Bay and is surrounded by County Galway. It is the fourth most populous city in the state and the sixth most populous on the island of Ireland.', '21 Taylor''s Hill', '', '', 7, 1, '2013-12-17 19:03:01', 0, 285000, '');
+(6, 'Galway Looker', 'Galway (Irish: Cathair na Gaillimhe), is a city in Ireland. It is in the West Region and the province of Connacht. Galway City Council is the local authority for the city. Galway lies on the River Corrib between Lough Corrib and Galway Bay and is surrounded by County Galway. It is the fourth most populous city in the state and the sixth most populous on the island of Ireland.', '21 Taylor''s Hill', '', '', 7, 1, '2013-12-17 20:21:01', 0, 285000, 'galway.jpg'),
+(7, 'Modest Abode', 'When in the Course of human events, it becomes necessary for one people to dissolve the political bands which have connected them with another, and to assume among the powers of the earth, the separate and equal station to which the Laws of Nature and of Nature''s God entitle them, a decent respect to the opinions of mankind requires that they should declare the causes which impel them to the separation.\r\n\r\nWe hold these truths to be self-evident, that all men are created equal, that they are endowed by their Creator with certain unalienable Rights, that among these are Life, Liberty and the pursuit of Happiness.--That to secure these rights, Governments are instituted among Men, deriving their just powers from the consent of the governed,', '123 Able st.', 'Abodington', '', 16, 1, '2013-12-17 23:02:59', 0, 125000, ''),
+(8, 'test', 'test', 'test', 'test', 'test', 26, 1, '2013-12-17 23:02:59', 0, 0, '');
 
 -- --------------------------------------------------------
 
