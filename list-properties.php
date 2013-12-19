@@ -26,10 +26,10 @@
                       ->from(array('t1' => 'properties'), array('property_id', 'description', 'title','address_line_1', 'address_line_2', 'address_line_3', 'update_timestamp', 'is_sold', 'price', 'photo_path'))
                         ->join(array('t2' => 'counties'),'t1.county_id=t2.county_id','t2.name as countyName')
                         ->join(array('t3' => 'property_types'),'t1.type_id=t3.type_id','t3.name as typeName')
-            ; 
+                    ; 
 
-                  $rows = $dbTable->fetchAll($select);
-  
+                    $rows = $dbTable->fetchAll($select);
+ 
                   $result = array();
                   foreach($rows as $row) {
                       $result[] = $row->toArray();
@@ -87,8 +87,7 @@
 					// photo
 					$htmlString .=  "</small></td>";
 					$htmlString .=  "<td><small>";
-					// $htmlString .=  output_edit_link($product["product_id"]);
-					$htmlString .= "Edit";
+                                        $htmlString .=  output_edit_link($property["property_id"]);
 					$htmlString .=  "</small></td>";
 					
 					$htmlString .=  "<td><small>";

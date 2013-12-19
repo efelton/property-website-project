@@ -52,7 +52,7 @@
 //              die('here');
               if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] == 1) {
             ?>
-                <li><a href="add-property.php">Add Property</a></li>
+                <li><a href="add-property1.php">Add Property</a></li>
                 <li><a href="list-properties.php">List Properties</a></li>
                 <li><a href="logout.php">Logout</a></li>
 
