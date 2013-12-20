@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 18, 2013 at 06:35 PM
+-- Generation Time: Dec 20, 2013 at 01:04 AM
 -- Server version: 5.6.11
 -- PHP Version: 5.5.1
 
@@ -105,7 +105,7 @@ CREATE TABLE IF NOT EXISTS `properties` (
   `price` int(11) NOT NULL,
   `photo_path` varchar(100) NOT NULL,
   PRIMARY KEY (`property_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=21 ;
 
 --
 -- Dumping data for table `properties`
@@ -114,12 +114,14 @@ CREATE TABLE IF NOT EXISTS `properties` (
 INSERT INTO `properties` (`property_id`, `title`, `description`, `address_line_1`, `address_line_2`, `address_line_3`, `county_id`, `type_id`, `update_timestamp`, `is_sold`, `price`, `photo_path`) VALUES
 (1, 'A small, bijou residence', 'Indescribable', '1 Nice Villas', 'Dublin 11', '', 6, 1, '2013-12-17 18:12:46', 0, 200000, 'crystal.jpg'),
 (2, 'Place in the city', 'test', 'test', 'test', 'test', 1, 2, '2013-12-17 18:13:02', 0, 400000, 'extension.jpg'),
-(3, 'Glorious Mansion', 'amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing ', '1 Amazing st', 'Amazing boul', 'Amazington', 6, 3, '2013-12-17 18:13:10', 0, 99000, 'sample.jpg'),
+(3, 'Glorious Mansion', 'amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing ', '1 Amazing st', 'Amazing boul', 'Amazington', 6, 2, '2013-12-19 22:00:00', 1, 99000, 'sample.jpg'),
 (4, 'Testy Place', 'test', 'Testy court', 'Flavia way', 'Cantelope', 3, 3, '2013-12-17 22:15:56', 1, 500000, 'sample.jpg'),
 (5, 'Tuple place', 'test', '1 the county type', 'test', 'test2', 4, 1, '2013-12-17 18:13:25', 0, 450000, 'sample.jpg'),
 (6, 'Galway Looker', 'Galway (Irish: Cathair na Gaillimhe), is a city in Ireland. It is in the West Region and the province of Connacht. Galway City Council is the local authority for the city. Galway lies on the River Corrib between Lough Corrib and Galway Bay and is surrounded by County Galway. It is the fourth most populous city in the state and the sixth most populous on the island of Ireland.', '21 Taylor''s Hill', '', '', 7, 1, '2013-12-17 20:21:01', 0, 285000, 'galway.jpg'),
-(7, 'Modest Abode', 'When in the Course of human events, it becomes necessary for one people to dissolve the political bands which have connected them with another, and to assume among the powers of the earth, the separate and equal station to which the Laws of Nature and of Nature''s God entitle them, a decent respect to the opinions of mankind requires that they should declare the causes which impel them to the separation.\r\n\r\nWe hold these truths to be self-evident, that all men are created equal, that they are endowed by their Creator with certain unalienable Rights, that among these are Life, Liberty and the pursuit of Happiness.--That to secure these rights, Governments are instituted among Men, deriving their just powers from the consent of the governed,', '123 Able st.', 'Abodington', '', 16, 1, '2013-12-17 23:02:59', 0, 125000, ''),
-(8, 'test', 'test', 'test', 'test', 'test', 26, 1, '2013-12-17 23:02:59', 0, 0, '');
+(7, 'Modest Abode', 'When in the Course of human events, it becomes necessary for one people to dissolve the political bands which have connected them with another, and to assume among the powers of the earth, the separate and equal station to which the Laws of Nature and of Nature''s God entitle them, a decent respect to the opinions of mankind requires that they should declare the causes which impel them to the separation.\r\n\r\nWe hold these truths to be self-evident, that all men are created equal, that they are endowed by their Creator with certain unalienable Rights, that among these are Life, Liberty and the pursuit of Happiness.--That to secure these rights, Governments are instituted among Men, deriving their just powers from the consent of the governed,', '123 Able st.', 'Abodington', '', 16, 1, '2013-12-19 22:03:06', 0, 125000, 'whitehouse.jpg'),
+(8, 'Coronation St', ' "Albert Tatlock (Jack Howarth): Have you got summat to tell me? \r\nMinnie Caldwell (Margot Bryant): Yes, Albert, I''m afraid I have. \r\nAlbert: Well, if you got summat to say, spit it out instead of rabbitin'' on about nothin''.\r\nMinnie: I am not rabbitin'' on about nothin'', Albert, I am definitely rabbitin'' on about somethin''.\r\nAlbert: What? \r\nMinnie: Our future life together. I don''t think we got one. ', '10 Coronation St', 'Angst town', '', 26, 3, '2013-12-19 22:07:18', 0, 85000, 'coronation.jpg'),
+(18, 'Very Affordable', 'A doll of a place; for all your 9 inch tall needs', '1 Barbie St', '', '', 14, 1, '2013-12-19 22:01:52', 0, 250, 'dollhouse.jpg'),
+(20, 'Canterlot Castle', 'A never to be repeated offer. Home of the princess. The chance to buy this mythical property. Excellent for stabling your magical ponies..', '1 Royal Way', 'Canterlot Mountain', '', 12, 1, '2013-12-20 00:51:21', 0, 99999999, 'canterlot1.png');
 
 -- --------------------------------------------------------
 

@@ -90,7 +90,7 @@
             echo $headerTitle;
 ?>
         </h2>    
-    <form action='process-form.php' class='form-horizontal' method='post'>
+    <form action='process-form.php' enctype="multipart/form-data" class='form-horizontal' method='post'>
         <div class="form-group">
             <label for="title" class="col-sm-3 control-label">Title</label>
             <div class="col-sm-3">
@@ -142,7 +142,22 @@
                     value="<?php echo $initialValues['price'];?>"                       
                        placeholder="Price" min='1' max='100000000' buttons='0' required>
             </div>
-        </div>        
+        </div>      
+
+        <?php 
+            if ($propertyID == 0) { // put in the file picker if this is a new property
+        ?>
+                
+            <div class="form-group">
+                <label for="price" class="col-sm-3 control-label" >Price</label>
+                <div class="col-sm-3">
+                    <input type="file" name="photo" accept="image/*" required>
+                </div>
+            </div>      
+        <?php
+            }
+        ?>
+        
         <div class="form-group">
             <label for="is_sold" class="col-sm-3 control-label" >Sold</label>
             <div class="col-sm-3">

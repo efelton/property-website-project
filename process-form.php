@@ -11,11 +11,15 @@
      
       require_once(APPLICATION_PATH .'/config/common.inc.php');
       
+      $propertyID = $_POST['property_id'];  
+
       $form = new Zend_Form;
 
 //        $form->setAction("process-form.php");
 //        $form->setMethod("post");
 
+      var_dump($_POST); echo "<p>";
+      var_dump($_FILES); echo "<p>";
         $form->addElement('text', 'title', array(
             'required'   => true
         ));
@@ -60,52 +64,45 @@
             'required'   => true,
             'validators' => array (
                 array('Digits', false),
-                array('LessThan', false, 100000000),
-                array('GreaterThan',false, 1),
+                array('LessThan', false, 100000001),
+                array('GreaterThan',false, 0),
             ),
             
         ));
         $form->addElement('checkbox', 'sold', array(
             'label'      => 'Sold',
         ));
-
-//        $form->addElement('file', 'photo', array(
-//            'label'      => 'Photo',
-//            'destination'  => 'uploads/',
-//            'validators' => array (
-//                array('Count', false, 1),
-//                array('Size',false, 102400),
-//                array('Extension',false, 'jpg,png,gif')
-//            ),
-//        ));
+        if ($propertyID == 0) { // validate image file if new property
+            $form->addElement('file', 'photo', array(
+                'label'      => 'Photo',
+//              'destination'  => 'uploads/',
+                'validators' => array (
+                    array('Count', false, 1),
+                    array('Size',false, 150000),
+                    array('Extension',false, 'jpg,png,gif')
+                ),
+        ));
+            
+        }
         $form->addElement('textarea', 'description', array(
             'required'   => true,
         ));
-//        $form->addElement('submit', 'submit', array(
-//            'label'      => 'Submit',
-//        ));
-      
-      
       
 //      var_dump ($_POST);
-      
 //      die("here");
       if ($form->isValid($_POST)) {
           echo "is valid!";
           
  
-          $imageFile = $form->getAttrib('photo');  
-          var_dump($imageFile );
+//          $imageFile = $form->getAttrib('photo');  
+//          echo "<p> imagefile = ";
+//          var_dump($imageFile );
           echo "<p>";
           var_dump($_FILES);
           echo "</p>";
-//          if (!$imageFile->receive()) {
-  //            // treat as validation error
-    //          die ("Error receiving the file");
-      //    }
  
-        //  $location = $imageFile->getFileName();
-        //  die ("location = $location");
+  //        $location = $imageFile->getFileName();
+  //        die ("location = $location");
           $data = array(
             'title'      => $_POST['title'],
             'address_line_1' => $_POST['address_line_1'],
@@ -122,7 +119,6 @@
             // photo
         );
 
-
         if (isset($_POST['is_sold']) && strlen($_POST['is_sold'])>0) {
             $data['is_sold'] = "1";
         } else
@@ -133,6 +129,13 @@
       $propertyID = $_POST['property_id'];  
           
         if ($propertyID == 0) {
+            // store the image
+            if(!move_uploaded_file($_FILES['photo']['tmp_name'], "uploads/". $_FILES['photo']['name'])) {
+      		die("<p>There was an error uploading the file, please try again!");
+
+            }
+            $data['photo_path'] = $_FILES['photo']['name'];
+            
             $db->insert('properties', $data);        
         } else {
 //            $data = array(  
@@ -144,6 +147,7 @@
             $n = $db->update('properties', $data, $where);            
         }
         // check for errors
+
         
 	    header('Location: list-properties.php');
       } else {
