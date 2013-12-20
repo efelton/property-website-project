@@ -71,9 +71,6 @@
             $headerTitle = "Edit Property";            
         }
     
-        $type_options = $db->fetchPairs('SELECT type_id, name FROM property_types ORDER BY type_id ASC');
-        $county_options = $db->fetchPairs('SELECT county_id, name FROM counties ORDER BY county_id ASC');
-
 //        var_dump ($type_options);
  //       die("here");
         //$country->setMultiOptions($options);
@@ -118,7 +115,7 @@
             <div class="col-sm-3">
                 <select class="form-control" id="county" name='county' required>
                 <?php
-                    echo populateDropdown($county_options, $initialValues['county']);
+                    echo makeCountyDropdown($db, $initialValues['county']);
                 ?>
                 </select>
             </div>
@@ -128,7 +125,7 @@
             <div class="col-sm-3">
                 <select class="form-control" id="type" name='type' required>
                 <?php
-                    echo populateDropdown($type_options, $initialValues['type']);
+                    echo makeTypeDropdown($db, $initialValues['type']);
                 ?>
                 </select>
             </div>

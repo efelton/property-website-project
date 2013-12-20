@@ -5,6 +5,7 @@
     || define('APPLICATION_PATH', realpath(dirname(__FILE__) . '/application'));
      
     require_once(APPLICATION_PATH .'/config/common.inc.php');
+        require_once(APPLICATION_PATH .'/inc/functions.inc.php');
     
     include_once "header.php"; ?>
 
@@ -19,6 +20,40 @@
           <div class="jumbotron">
             <h1>Fizzy Properties!</h1>
             <p>Come to us for your most up to date php powered property website. Once again you can make (or lose!) a fortune in Irish property. When is a house not a house? When it's a meal ticket and a means to beggar your neighbour. </p>
+          </div>
+          <div>
+              <form>
+                <div class="form-group">
+                    <label for="min-price" class="col-sm-3 control-label" >Minimum Price</label>
+                    <div class="col-sm-3">
+                        <input type="number" class="form-control" id="min-price" name='min-price' 
+                            placeholder="Minimum" min='1' max='100000000' buttons='0' >
+                    </div>
+                    <label for="min-price" class="col-sm-3 control-label" >Maximum Price</label>
+                    <div class="col-sm-3">
+                        <input type="number" class="form-control" id="max-price" name='max-price' 
+                            placeholder="Maximum" min='1' max='100000000' buttons='0' >
+                    </div>
+                    <label for="type" class="col-sm-3 control-label" >Type</label>
+                    <div class="col-sm-3">
+                        <select class="form-control" id="type" name='type' >
+                            <?php
+                                echo makeTypeDropdown($db, 0);
+                            ?>
+                        </select>
+                    </div>
+                    <label for="county" class="col-sm-3 control-label" >County</label>
+                    <div class="col-sm-3">
+                        <select class="form-control" id="county" name='county' >
+                            <?php
+                                echo makeCountyDropdown($db, 0);
+                            ?>
+                        </select>
+                    </div>
+
+                    <input type="submit" class='form-control '/>
+                </div>      
+              </form>    
           </div>
           <div class="row">
             <?php 
